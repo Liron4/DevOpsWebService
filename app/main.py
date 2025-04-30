@@ -1,12 +1,16 @@
 from fastapi import FastAPI
 import uvicorn
 from app.routes.POSTRequests import router as post_router
+from app.routes.GETRequests import router as get_router
 from app.routes.DELETERequests import router as delete_router
 
 app = FastAPI(title="Playlist Server API")
 
 # POST routes
 app.include_router(post_router, prefix="/POST")
+
+# GET routes
+app.include_router(get_router, prefix="/GET")
 
 # DELETE routes
 app.include_router(delete_router, prefix="/DELETE")

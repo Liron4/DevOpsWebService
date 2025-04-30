@@ -39,4 +39,3 @@ async def delete_song(username: str, song_title: str):
     await r.delete(song_title_key, song_link_key)
 
     return {"message": f"Song '{song_title}' deleted successfully for user '{username}'."}
-

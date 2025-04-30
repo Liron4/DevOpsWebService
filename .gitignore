@@ -3,9 +3,6 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Redis data directory (if you don't want to track runtime data)
-redis_data/appendonlydir/
-
 # Docker-related files
 *.log
 .env
