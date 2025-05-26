@@ -15,7 +15,7 @@ services:
     container_name: playlist_api
     ports:
       - "8000:8000"
-    volumes:
+    volumes: # why? not needed
       - .:/app
     depends_on:
       - redis
