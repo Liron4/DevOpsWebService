@@ -3,21 +3,21 @@ import redis.asyncio as redis
 
 router = APIRouter()
 
-r = redis.Redis(host='redis', port=6379, decode_responses=True)
+r = redis.Redis(host='redis', port=6379, decode_responses=True) # variables names should be meaningful, r is not a good name, could be redis_client or similar
 
 @router.get("/users")
 async def get_all_users():
     keys = await r.keys("user:*")
-    if not keys:
+    if not keys: # break line before if for better readability
         raise HTTPException(status_code=404, detail="No users found")
 
     users = [key.split(":")[1] for key in keys]
-    return {"users": users}
+    return {"users": users} # break line before return for better readability
 
 @router.get("/{username}/songs")
 async def get_user_songs(username: str):
     user_key = f"user:{username}"
-    if not await r.exists(user_key):
+    if not await r.exists(user_key): # break line before if for better readability
         raise HTTPException(status_code=404, detail="User not found")
 
     song_keys = await r.keys(f"song:{username}:*")

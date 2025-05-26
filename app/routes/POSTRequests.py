@@ -4,7 +4,7 @@ import redis.asyncio as redis
 
 router = APIRouter()
 
-r = redis.Redis(host='redis', port=6379, decode_responses=True)
+r = redis.Redis(host='redis', port=6379, decode_responses=True) # variables names should be meaningful, r is not a good name, could be redis_client or similar
 
 class Song(BaseModel):
     title: str
@@ -18,12 +18,12 @@ async def create_user(username: str):
         raise HTTPException(status_code=409, detail="User already exists")
 
     await r.hset(user_key, "initialized", "true")
-    return {"message": "User created successfully"}
+    return {"message": "User created successfully"} # break line before return for better readability
 
 @router.post("/{username}/songs")
 async def add_song(username: str, song: Song):
     user_key = f"user:{username}"
-    if not await r.exists(user_key):
+    if not await r.exists(user_key): # break line before if for better readability
         raise HTTPException(status_code=404, detail="User not found")
     
     song.youtube_link = song.youtube_link.lower() # For consistency

@@ -32,9 +32,16 @@ A lightweight playlist management server that allows users to save and retrieve 
 ### 🚀 How to Run
 
 ```bash
-git clone https://github.com/your-username/playlist-server.git
-cd playlist-server
+git clone https://github.com/your-username/playlist-server.git - wrong url
+cd playlist-server - wrong folder 
 docker-compose up --build
 ```
-# Architecture Diagram
+
+How to access? url and port?
+
+Which endpoints are available to call?
+How to call them?
+
+
+# Architecture Diagram - inaccurate (its not architecture Diagram)
 ![System Architecture](https://i.imgur.com/r5Af02k.png)
